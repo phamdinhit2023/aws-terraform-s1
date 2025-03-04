@@ -1,6 +1,6 @@
 provider "aws" {
-  region = "ap-southeast-1"
-  profile= "kienle"
+  region = "us-east-1"
+  profile= "terraform-s1"
 }
 
 data "aws_vpc" "default" {
@@ -15,7 +15,7 @@ data "aws_subnets" "default" {
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-0df7a207adb9748c7"
+  ami           = "ami-04b4f1a9cf54c11d0"
   instance_type = "t2.micro"
 
   vpc_security_group_ids = [aws_security_group.instance.id]
@@ -32,7 +32,7 @@ resource "aws_instance" "example" {
 }
 
 resource "aws_launch_configuration" "example" {
-  image_id        = "ami-0df7a207adb9748c7"
+  image_id        = "ami-04b4f1a9cf54c11d0"
   instance_type   = "t2.micro"
   security_groups = [aws_security_group.instance.id]
 
